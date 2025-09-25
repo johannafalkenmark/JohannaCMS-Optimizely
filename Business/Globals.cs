@@ -10,13 +10,13 @@ public class Globals
         [Display(
             Name = "Metadata",
             Order = 40
-            )]
+        )]
         public const string MetaData = "Metadata";
 
         [Display(
-           Name = "Spezialized",
-           Order = 90
-           )]
-        public const string Specialized = "Spezialized";
+            Name = "Specialized",
+            Order = 90
+        )]
+        public const string Specialized = "Specialized";
     }
 }

@@ -1,15 +1,16 @@
 ﻿using EPiServer.Web;
 using JohannaCMS.Business;
+using JohannaCMS.Models.Blocks;
 using System.ComponentModel.DataAnnotations;
 
 namespace JohannaCMS.Models.Pages;
 
 [ContentType(
-        GUID = "C23681AB-CDDD-4200-BB5C-A473ACD2077A",
-        GroupName = Globals.GroupNames.Specialized
-    )]
+       GUID = "F74E27B8-A1CF-4439-99D0-EB3234C41A48", 
+       GroupName = Globals.GroupNames.Specialized
+   )]
 
-[ImageUrl("/Images/gang.jpg")]
+[ImageUrl("/pages/CMS-icon-page-02.png")]
 public class StartPage : SitePageData
 {
     [Display(
@@ -32,7 +33,7 @@ public class StartPage : SitePageData
         Order = 30
     )]
     [CultureSpecific]
-    [ScaffoldColumn(false)]
+    //[ScaffoldColumn(false)] om man vill dölja ngt från redaktören
     public virtual XhtmlString MainBody { get; set; }
 
     [Display(
@@ -41,4 +42,12 @@ public class StartPage : SitePageData
     )]
     [UIHint(UIHint.Image)]
     public virtual ContentReference Image { get; set; }
+
+    [Display(
+        GroupName = SystemTabNames.Content,
+        Order = 50
+    )]
+    [CultureSpecific]
+    [AllowedTypes(typeof(CarouselPage), typeof(CarouselBlock))]
+    public virtual ContentArea Carousel { get; set; }
 }
